@@ -96,7 +96,7 @@ public class BoardController {
 		String fileUrl=uploadPath+fileName;
 		logger.info(req.getContextPath());
 		String script ="<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(1,'"+
-				fileUrl+"','이미지가 업로드되었습니다.')"+"</script>";
+				fileUrl+"','이미지가 업로드되었습니다.');"+"</script>";
 		printWriter.println(script);
 		logger.info(script);  
 		//스트림 닫기 

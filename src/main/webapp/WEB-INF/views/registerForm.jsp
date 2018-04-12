@@ -35,7 +35,7 @@
 	
 	var j=jQuery;
 	j(function(){
-		CKEDITOR.replace('bcontent',{filebrowserUploadUrl:"${pageContext.request.contextPath}/imgUpload"});
+		
 	});
 </script>
 </head>
@@ -52,6 +52,9 @@
 			<textarea id="editor1" name="bcontent">
 			    
 			</textarea>
+			<script>
+				CKEDITOR.replace('bcontent',{filebrowserUploadUrl:"${pageContext.request.contextPath}/imgUpload"});
+			</script>
 		</div>
 		
 	</form>
