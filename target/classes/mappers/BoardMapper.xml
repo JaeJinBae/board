@@ -5,26 +5,26 @@
 <mapper namespace="com.dgit.mappers.BoardMapper">
 
 	<select id="selectAll" resultType="BoardVO">
-		select * from board order by bno desc
+		select * from testBoard order by bno desc
 	</select>
 	
 	<select id="selectOne" resultType="BoardVO">
-		select * from board where bno=#{bno}
+		select * from testBoard where bno=#{bno}
 	</select>
 	
 	<insert id="insert">
-		insert into board (btitle, bcontent) values(#{btitle},#{bcontent})
+		insert into testBoard (btitle, bcontent) values(#{btitle},#{bcontent})
 	</insert>
 	
 	<update id="update">
-		update board set btitle=#{btitle}, bcontent=#{bcontent} where bno=#{bno}
+		update testBoard set btitle=#{btitle}, bcontent=#{bcontent} where bno=#{bno}
 	</update>
 	
 	<update id="updateCnt">
-		update board set bcount=(bcount+1) where bno=#{bno}
+		update testBoard set bcount=(bcount+1) where bno=#{bno}
 	</update>
 	
 	<delete id="delete">
-		delete from board where bno=#{bno}
+		delete from testBoard where bno=#{bno}
 	</delete>
 </mapper>

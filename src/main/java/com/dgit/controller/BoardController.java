@@ -85,6 +85,7 @@ public class BoardController {
 		String fileName=upload.getOriginalFilename();
 		//바이트 배열로 변환
 		byte[] bytes=upload.getBytes();
+		
 		//이미지를 업로드할 디렉토리(배포경로로 설정)
 		String innerUploadPath="resources/upload/";
 		String uploadPath= (req.getSession().getServletContext().getRealPath("/"))+ innerUploadPath;
@@ -93,26 +94,15 @@ public class BoardController {
 		out=new FileOutputStream(new File(uploadPath+fileName));//서버에 파일 저장
 		//서버에 저장됨
 		out.write(bytes);
-		
-		//클라이언트에 업로드 결과를 표시
-		String callback = req.getParameter("CKEditorFuncNum");
-		//printWriter=res.getWriter();
-		String fileUrl=innerUploadPath+fileName;
-		
-		/*logger.info(req.getContextPath());
-		String script ="<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(1,'"+
-				fileUrl+"','이미지가 업로드되었습니다.');"+"</script>";*/
-		
-		//model.addAttribute("fileUrl",fileUrl);
+
+		String fileUrl="/"+innerUploadPath+fileName;
+
 		System.out.println(fileUrl);
 		
 		map.put("uploaded", 1);
 		map.put("fileName", fileName);
 		map.put("url", fileUrl);
-		/*printWriter.println(script);
-		logger.info(script);  
-		//스트림 닫기 
-		printWriter.flush(); */
+
 		return map;
 	}
 	
